@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Krane's Blog</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+
+    <img src="images/bg.jpg" class="bg-img">
+
+    <div class="container header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="navbar-brand" href="#">Krane's Technique Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="comments.html">Comments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sitemap.html">SiteMap</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <div class="container main">
+        <section class="daily-phrase" id="every_day">
+            <h2>Daily Phrase</h2>
+            <p v-html="getContent"></p>
+        </section>
+        <div class="main-content row">
+            <div class="main-left col-lg-9 col-md-8 col-sm-7" id="article_list">
+                <div class="card" v-for="(item, index) in articleList" :key="'article' + index">
+                    <div class="card-body">
+                      <a :href="item.link" class="card-title">{{item.title}}</a>
+                      <p class="card-text">{{item.content}}</p>
+                      <a :href="item.link" class="btn btn-primary">Read More</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">created by {{item.date}} | views ({{item.views}}) | Tags: {{item.tags}}</small>
+                    </div>    
+                </div>
+            </div>
+            <div class="main-right col-lg-3 col-md-4 col-sm-5">
+                <section class="random-tags" id="random_tags">
+                    <h4>随机标签云</h4>
+                    <div class="tags">
+                        <a href="" v-for="(item, tindex) in tags" :key="'tags' + tindex" :style="{color: randomColor(), fontSize: randomSize()}">{{item}}</a>
+                    </div>
+                </section>
+                <section class="recent-hot-blogs" id="recent_hot_blogs">
+                    <h4>最近热门</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="(item, hindex) in hotList" :key="'hot' +  hindex"><a :href="item.link">{{item.title}}</a></li>
+                    </ul>
+                </section>
+                <section class="recent-comments" id="recent_comments">
+                    <h4>最新评论</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="(item, cindex) in commentList" :key="'comment' + cindex">
+                            <dl>
+                                <dt>{{item.name}}</dt>
+                                <dd>{{item.date}}</dd>
+                            </dl>
+                            <a href="">{{item.comment}}</a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="friendly-links">
+                    <h4>友情链接</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="">Cras justo odio</a><a href="">Cras justo odio</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark">
+        copyright @ This is Krane's blog
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

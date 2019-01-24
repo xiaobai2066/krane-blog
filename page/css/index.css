@@ -1,0 +1,99 @@
+
+/* 每日一句 */
+.container.main {
+    max-width: 100% !important;
+    padding: 56px 50px;
+    background: #f8f8f8;
+}
+.container.main .daily-phrase {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;   
+    background: rgba(0, 0, 0, .5) !important;
+    border-radius: 20px;
+}
+.container.main .daily-phrase:before {
+    font-family: MyIcon;
+    content: '\e122';
+    font-size: 12px;
+    color: cadetblue;
+    position: relative;
+    display: block;
+    height: 0;
+    left: 54px;
+}
+.container.main .main-content {
+    margin-top: 20px;
+}
+.container.main .main-content .card {
+    margin-top: 20px;
+}
+.container.main .main-content .card:first-child {
+    margin-top: 0;
+}
+.container.main .main-content .main-right section {
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    background-color: lightgray;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+}
+.container.main .main-content .main-right section:last-child {
+    margin-bottom: 0;
+}
+.container.main .main-content .main-right section h4 {
+    margin-bottom: 0;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color: cadetblue;
+}
+.container.main .main-content .main-right .random-tags .tags{
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    color: #007bff;
+}
+.container.main .main-content .main-right .random-tags a {
+    margin-right: 5px;
+    padding: 5px 0;
+}
+.container.main .main-content .main-right .friendly-links ul li,
+.container.main .main-content .main-right .recent-comments ul li dl {
+    margin-bottom: 0;
+    display: flex;
+}
+.container.main .main-content .main-right .friendly-links ul li a,
+.container.main .main-content .main-right .recent-comments ul li dl dt {
+    flex: 1;
+}
+.container.main .main-content .main-right .recent-comments ul li dl dd {
+    text-align: right;
+}
+
+.sitemap-h1 {
+    margin: 20px;
+    text-align: center;
+}
+.sitemap-lists {
+    padding-bottom: 56px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.sitemap-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    background: #9a9a9a;
+    color: #fff;
+}
+/* 小于576时, 隐藏右侧 */
+@media (max-width: 576px) {
+    .container.main .main-content .main-right {
+        display: none;
+    }
+}

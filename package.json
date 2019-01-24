@@ -1,0 +1,25 @@
+{
+  "name": "krane-s-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaobai2066/krane-s-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaobai2066/krane-s-blog/issues"
+  },
+  "homepage": "https://github.com/xiaobai2066/krane-s-blog#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "mysql": "^2.16.0"
+  }
+}
