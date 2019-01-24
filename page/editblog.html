@@ -161,20 +161,38 @@
   </script>
   <script>
     function submit () {
+      var title = $('#title').val();
+      var tags = $('#tags').val();
       var content = $('#editor').html();
-      $.ajax({
-        url: './editEveryDay',
-        method: 'post',
-        data: content,
-        success: function (res) {
-          var result = JSON.parse(res);
-          alert(result.msg);
-          $('#editor').html('');
-        },
-        error: function (err) {
-          console.log(err);
-        }
-      });
+      if (title) {
+        $.ajax({
+          url: '/editBlog?title=' + title + '&tags=' + tags,
+          method: 'post',
+          data: content,
+          success: function (res) {
+            var result = JSON.parse(res);
+            alert(result.msg);
+            $('#editor').html('');
+          },
+          error: function (err) {
+            console.log(err);
+          }
+        })
+      } else {
+        $.ajax({
+          url: './editEveryDay',
+          method: 'post',
+          data: content,
+          success: function (res) {
+            var result = JSON.parse(res);
+            alert(result.msg);
+            $('#editor').html('');
+          },
+          error: function (err) {
+            console.log(err);
+          }
+        });
+      }
     }
   </script>
 </body>
